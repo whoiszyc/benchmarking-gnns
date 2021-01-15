@@ -42,6 +42,10 @@ class DotDict(dict):
 """
 
 from nets.CSL_graph_classification.load_net import gnn_model # import GNNs
+
+
+
+
 from data.data import LoadData # import dataset
 
 

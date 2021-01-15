@@ -38,7 +38,6 @@ dependencies:
 - requests==2.22.0
 - tqdm==4.43.0
 - pip:
-  - tensorflow==2.1.0
-  - tensorflow-estimator==2.1.0
-  - tensorboard==2.1.1
   - ogb==1.1.1
+  - keras==2.4.3
+  - tensorflow==2.4.0

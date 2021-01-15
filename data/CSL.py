@@ -138,15 +138,17 @@ class CSL(torch.utils.data.Dataset):
         t0 = time.time()
         print("[I] Preparing Circular Skip Link Graphs v4 ...")
         for sample in self.adj_list:
+            # Deep Graph Library (DGL) is a Python package built for easy implementation of graph neural network model family,
+            # on top of existing DL frameworks (e.g. PyTorch, MXNet, Gluon etc.).
             _g = dgl.DGLGraph()
             _g.from_scipy_sparse_matrix(sample)
             g = dgl.transform.remove_self_loop(_g)
-            g.ndata['feat'] = torch.zeros(g.number_of_nodes()).long()
+            g.ndata['feat'] = torch.zeros(g.number_of_nodes()).long()  # 'feat' here means the feature vector of a node
             #g.ndata['feat'] = torch.arange(0, g.number_of_nodes()).long() # v1
             #g.ndata['feat'] = torch.randperm(g.number_of_nodes()).long() # v3
                 
             # adding edge features as generic requirement
-            g.edata['feat'] = torch.zeros(g.number_of_edges()).long()
+            g.edata['feat'] = torch.zeros(g.number_of_edges()).long()  # 'feat' here means the feature vector of an edge
             #g.edata['feat'] = torch.arange(0, g.number_of_edges()).long() # v1
             #g.edata['feat'] = torch.ones(g.number_of_edges()).long() # v2
             
